@@ -66,6 +66,7 @@
     <string name="mandatory_field">Mandatory Field missing</string>
     <string name="coffee_added">Coffee added</string>
     <string name="saved_language" translatable="false">language</string>
+    <string name="hungarian">Hungarian</string>
 
 
 </resources>

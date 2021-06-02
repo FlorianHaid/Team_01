@@ -36,6 +36,7 @@ class SettingsFragment : Fragment() {
         val radioGroupLanguage: RadioGroup = view.findViewById(R.id.radio_group_language)
         val radioBtnEnglish: RadioButton = view.findViewById(R.id.radio_btn_english)
         val radioBtnRussian: RadioButton = view.findViewById(R.id.radio_btn_russian)
+        val radioBtnHungarian: RadioButton = view.findViewById(R.id.radio_btn_hungarian)
 
         val sharedPref = activity?.getPreferences(Context.MODE_PRIVATE)
         val savedLanguage = sharedPref!!.getString(getString(R.string.saved_language), "en")
@@ -43,13 +44,19 @@ class SettingsFragment : Fragment() {
         when (savedLanguage) {
             "en" -> radioGroupLanguage.check(R.id.radio_btn_english)
             "ru" -> radioGroupLanguage.check(R.id.radio_btn_russian)
+            "hu" -> radioGroupLanguage.check(R.id.radio_btn_hungarian)
         }
 
         val applyButton = view.findViewById<Button>(R.id.settings_apply_button)
         applyButton.setOnClickListener {
             var language = "en"
+
             if (radioBtnRussian.isChecked) {
                 language = "ru"
+            }
+
+            if (radioBtnHungarian.isChecked) {
+                language = "hu"
             }
 
             with(sharedPref.edit()) {
